@@ -25,6 +25,9 @@ jobs:
       - name: 🏗️ Build Project
         run: npm run build
         
+      - name: 🔓 Unignore dist folder
+        run: rm .gitignore
+        
       - name: 📂 Sync files to Hostinger
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
