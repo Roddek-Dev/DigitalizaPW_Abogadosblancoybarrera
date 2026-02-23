@@ -26,7 +26,7 @@ jobs:
         run: npm run build
         
       - name: 📂 Sync files to Hostinger
-        uses: milanmk/actions-file-deploy@master
+        uses: milanm/actions-file-deploy@master
         with:
           remote-protocol: "ftp"
           remote-host: ${{ secrets.FTP_SERVER }}
