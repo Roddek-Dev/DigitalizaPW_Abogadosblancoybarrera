@@ -9,8 +9,8 @@ import { siteConfig } from '../data/config';
 
 <Layout>
   <!-- Hero Section -->
-  <section class="relative bg-primary-950 text-white py-32 lg:py-48 min-h-[80vh] flex items-center bg-[url('/images/hero-bg.jpg')] bg-cover bg-center">
-    <div class="absolute inset-0 bg-primary-950/80"></div>
+  <section class="relative bg-primary-950 text-white py-32 lg:py-48 min-h-[80vh] flex items-center bg-[url('/images/bg-biblioteca-oscura.webp')] bg-cover bg-center">
+    <div class="absolute inset-0 bg-primary-950/70"></div>
     <div class="container-custom relative z-10 flex flex-col items-center text-center">
       <h1 class="text-4xl md:text-6xl font-bold mb-6 max-w-4xl text-white font-serif leading-tight">
         Bienvenido a BLANCO&BARRERA abogados,
@@ -120,11 +120,10 @@ import { siteConfig } from '../data/config';
     </div>
   </section>
 
-  <!-- Banner intermedio (Placeholder Imagen) -->
-  <section class="h-64 bg-primary-900 bg-[url('/images/banner-bg.jpg')] bg-cover bg-fixed bg-center relative flex items-center justify-center">
-    <div class="absolute inset-0 bg-primary-950/70"></div>
-    <div class="relative z-10 text-center px-4">
-      <h2 class="text-3xl md:text-5xl font-serif text-brand-gold font-bold italic mb-4">Protegiendo su patrimonio</h2>
+  <!-- Banner Quote Intermedio -->
+  <section class="py-10 bg-white flex justify-center items-center">
+    <div class="container-custom max-w-4xl">
+      <img src="/images/banner-quote-valor.webp" alt="Frase de Valor" class="w-full h-auto shadow-2xl rounded-xl object-contain" />
     </div>
   </section>
 
@@ -141,19 +140,18 @@ import { siteConfig } from '../data/config';
           <p class="text-gray-600 mb-6 text-lg leading-relaxed text-justify">
             En Blanco&Barrera Abogados, nuestra misión es más que simplemente ofrecer servicios legales excepcionales; nos comprometemos a proteger los intereses económicos y sociales de nuestros clientes en cada paso del camino. Con una profunda comprensión de los desafíos y las complejidades que enfrentan individuos y empresas en el entorno jurídico actual, nos enorgullecemos de ofrecer soluciones innovadoras y estratégicas que salvaguarden sus derechos y promuevan su bienestar económico y social.
           </p>
-          <p class="text-gray-600 leading-relaxed text-justify">
+          <p class="text-gray-600 leading-relaxed text-justify mb-8">
             Nuestro equipo de abogados altamente calificados está dedicado a brindar asesoramiento legal integral y representación de primera clase en una variedad de áreas, desde el derecho laboral hasta el derecho empresarial y más allá. Ya sea que estés luchando contra la discriminación laboral, enfrentando disputas contractuales o buscando proteger tus activos comerciales, estamos aquí para ayudarte a navegar por los desafíos legales con confianza y seguridad.
           </p>
+          <a href="/nosotros" class="inline-flex items-center gap-2 text-brand-gold font-bold uppercase tracking-widest hover:text-yellow-600 transition-colors">
+            LEER MÁS
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+          </a>
         </div>
-        <div class="relative">
-          <!-- Espacio para la imagen grupal u oficina -->
-          <div class="aspect-square md:aspect-[4/3] bg-primary-100 rounded-lg relative overflow-hidden bg-[url('/images/about-us.jpg')] bg-cover bg-center shadow-2xl">
-            <div class="absolute inset-0 bg-primary-900/10 mix-blend-multiply"></div>
-          </div>
-          <div class="absolute -bottom-10 -left-10 bg-brand-gold text-white p-8 rounded-lg shadow-xl hidden md:block">
-            <p class="text-4xl font-serif font-bold">10+</p>
-            <p class="text-sm uppercase tracking-widest font-semibold mt-2">Años de Excelencia</p>
-          </div>
+        <div class="relative h-full min-h-[400px]">
+          <!-- Setup con dos imagenes superpuestas como tu diseno anterior -->
+          <div class="absolute top-0 right-0 w-3/4 aspect-[4/3] rounded-xl overflow-hidden shadow-2xl bg-[url('/images/BLANCO-Y-BARRERA-4.webp')] bg-cover bg-center z-10 border-4 border-white"></div>
+          <div class="absolute bottom-0 left-0 w-3/4 aspect-[4/3] rounded-xl overflow-hidden shadow-2xl bg-[url('/images/BLANCO-Y-BARRERA-3.webp')] bg-cover bg-center z-20 border-4 border-white transform translate-y-12 bg-white"></div>
         </div>
       </div>
     </div>
@@ -190,7 +188,7 @@ import { siteConfig } from '../data/config';
   </section>
 
   <!-- Stats Grid -->
-  <section class="py-20 bg-primary-950 text-white relative bg-[url('/images/stats-bg.jpg')] bg-cover bg-center bg-fixed">
+  <section class="py-20 bg-primary-950 text-white relative bg-[url('/images/bg-biblioteca-clara.webp')] bg-cover bg-center bg-fixed">
     <div class="absolute inset-0 bg-primary-950/90"></div>
     <div class="container-custom relative z-10">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-brand-gold/20">
@@ -236,7 +234,7 @@ import { siteConfig } from '../data/config';
     <div class="container-custom">
       <div class="text-center max-w-4xl mx-auto mb-16">
         <span class="text-brand-gold font-bold tracking-widest uppercase text-sm mb-4 block">Real Testimonios</span>
-        <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary-950 mb-4 opacity-80 italic">Our clients are happy to commend our efforts</h2>
+        <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary-950 mb-4 opacity-80 italic">Nuestros clientes avalan con satisfacción nuestra labor</h2>
         <div class="w-16 h-1 bg-brand-gold mx-auto mb-8"></div>
         <p class="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
           En Blanco&Barrera Abogados, la satisfacción de nuestros clientes es nuestra prioridad número uno. Nos enorgullece haber brindado servicios legales excepcionales a una amplia gama de clientes, y valoramos profundamente sus opiniones y experiencias con nuestra firma.
