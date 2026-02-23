@@ -14,7 +14,7 @@ const { title = siteConfig.name, description = siteConfig.description } =
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" class="overflow-x-hidden">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
@@ -33,7 +33,7 @@ const { title = siteConfig.name, description = siteConfig.description } =
 			}
 		</title>
 	</head>
-	<body class="flex flex-col min-h-screen">
+	<body class="flex flex-col min-h-screen overflow-x-hidden">
 		<Header />
 		<main class="flex-grow">
 			<slot />
