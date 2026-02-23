@@ -26,12 +26,12 @@ jobs:
         run: npm run build
         
       - name: 📂 Sync files to Hostinger
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        uses: milanmk/actions-file-deploy@master
         with:
-          username: ${{ secrets.FTP_USERNAME }}
-          server: ${{ secrets.FTP_SERVER }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local_path: './dist/*'
-          remote_path: '/public_html'
-          port: 21
-          sftp_only: false
+          remote-protocol: "ftp"
+          remote-host: ${{ secrets.FTP_SERVER }}
+          remote-user: ${{ secrets.FTP_USERNAME }}
+          remote-password: ${{ secrets.FTP_PASSWORD }}
+          remote-path: "/public_html"
+          local-path: "dist/"
+          sync: "delta"
