@@ -25,13 +25,20 @@ jobs:
       - name: 🏗️ Build Project
         run: npm run build
         
-      - name: 📂 Sync files to Hostinger
-        uses: milanm/actions-file-deploy@master
-        with:
-          remote-protocol: "ftp"
-          remote-host: ${{ secrets.FTP_SERVER }}
-          remote-user: ${{ secrets.FTP_USERNAME }}
-          remote-password: ${{ secrets.FTP_PASSWORD }}
-          remote-path: "/public_html"
-          local-path: "dist/"
-          sync: "delta"
+      - name: 📂 Native LFTP Sync to Hostinger
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y lftp
+          lftp -c "
+          set ftp:ssl-allow yes
+          set ftp:ssl-force true
+          set ftp:ssl-protect-data true
+          set ssl:verify-certificate no
+          open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" \"$FTP_SERVER\"
+          mirror -R -v ./dist/ /public_html
+          quit
+          "
