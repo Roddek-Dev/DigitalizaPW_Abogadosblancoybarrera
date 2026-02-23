@@ -1,0 +1,65 @@
+---
+import { siteConfig } from '../../data/config';
+---
+
+<header class="w-full relative z-50">
+  <!-- Top Contact Bar -->
+  <div class="bg-brand-gold text-white text-xs font-semibold tracking-wide py-2 hidden lg:block">
+    <div class="container-custom flex items-center justify-between">
+      <div class="flex items-center gap-6">
+        <a href={`tel:${siteConfig.contact.phones[0].replace(/\s+/g, '')}`} class="flex items-center gap-2 hover:text-primary-950 transition-colors">
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+          {siteConfig.contact.phones[0]}
+        </a>
+        <a href={`mailto:${siteConfig.contact.email}`} class="flex items-center gap-2 hover:text-primary-950 transition-colors">
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+          {siteConfig.contact.email}
+        </a>
+        <span class="flex items-center gap-2 opacity-90">
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
+          {siteConfig.contact.address.toUpperCase()} {siteConfig.contact.city.split(',')[0].toUpperCase()}
+        </span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="#" class="hover:text-primary-950 transition-colors font-medium flex gap-2"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg> Consultas</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-primary-950 text-white shadow-lg border-b border-brand-gold/30 sticky top-0">
+    <div class="container-custom">
+      <div class="flex justify-between items-center h-20">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-3 group">
+        <!-- SVG Placeholder Logo -->
+        <div class="w-10 h-10 bg-gold-600 text-white rounded-sm flex items-center justify-center font-serif font-bold text-xl group-hover:bg-gold-500 transition-colors">
+          B&B
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif font-bold text-lg leading-tight tracking-wider text-white">BLANCO & BARRERA</span>
+          <span class="text-xs tracking-[0.2em] text-gold-400 uppercase">Abogados</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="/" class="text-sm font-medium hover:text-gold-400 transition-colors">Inicio</a>
+        <a href="/nosotros" class="text-sm font-medium hover:text-gold-400 transition-colors">La Firma</a>
+        <a href="/servicios" class="text-sm font-medium hover:text-gold-400 transition-colors">Servicios</a>
+        <a href="/contacto" class="text-sm font-medium hover:text-gold-400 transition-colors">Contacto</a>
+      </nav>
+
+      <!-- CTA & Mobile menu button -->
+      <div class="flex items-center gap-4">
+        <a href={siteConfig.contact.whatsappLink} target="_blank" rel="noopener noreferrer" class="hidden lg:inline-flex btn-primary !py-2 !px-4 !text-sm">
+          Asesoría Inmediata
+        </a>
+        <button type="button" class="md:hidden text-gray-300 hover:text-white" aria-label="Abrir menú">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>

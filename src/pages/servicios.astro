@@ -1,0 +1,195 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { realEstateServices } from '../data/services';
+import { siteConfig } from '../data/config';
+---
+
+<Layout title="Nuestros Servicios" description="Explora nuestras áreas de práctica legal y servicios inmobiliarios en Bucaramanga.">
+  
+  <!-- Hero Section -->
+  <section class="h-[40vh] md:h-[50vh] relative bg-[url('/images/servicios-hero.jpg')] bg-cover bg-center flex items-center justify-center">
+    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-4 bg-gradient-to-r from-brand-gold to-yellow-600 opacity-80 z-20"></div>
+    <div class="container-custom relative z-10 text-center">
+      <div class="bg-primary-950/80 inline-block px-12 py-6 rounded-2xl border-2 border-brand-gold backdrop-blur-sm shadow-2xl">
+        <h1 class="text-4xl md:text-6xl font-bold font-serif text-brand-gold" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+          Servicios
+        </h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="py-20 bg-primary-950 text-white relative">
+    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+    <div class="container-custom relative z-10">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-serif text-brand-gold font-bold mb-6">En Blanco & Barrera Abogados</h2>
+          <div class="w-16 h-1 bg-brand-gold mb-8 shadow-[0_0_10px_rgba(234,179,8,0.5)]"></div>
+          <p class="text-lg text-gray-300 leading-relaxed font-medium text-justify">
+            Nos esforzamos por brindar soluciones legales sólidas y personalizadas para cada cliente, combinando nuestra experiencia, dedicación y ética profesional para alcanzar resultados satisfactorios en cada caso que manejamos. Confíe en nosotros para defender sus derechos y proteger sus intereses en todos los aspectos de la ley.
+          </p>
+        </div>
+        <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-[0_0_30px_rgba(234,179,8,0.15)] bg-primary-900 border-2 border-brand-gold/30 bg-[url('/images/servicios-intro.jpg')] bg-cover bg-center">
+          <div class="absolute inset-0 bg-black/10"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÁREA LEGAL: Alternating layout -->
+  <section class="py-24 bg-brand-light relative">
+    <div class="container-custom">
+      <div class="text-center mb-24">
+        <span class="text-brand-gold font-bold tracking-widest uppercase text-sm mb-4 block">Defensa y Representación</span>
+        <h2 class="text-4xl md:text-5xl font-serif font-black text-primary-950 mb-6 uppercase">Área Legal</h2>
+        <div class="w-24 h-1 bg-brand-gold mx-auto shadow-md"></div>
+      </div>
+
+      <div class="space-y-32">
+        
+        <!-- Laboral -->
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div class="flex flex-col justify-center order-2 lg:order-1 px-4 lg:pr-8">
+            <h3 class="text-3xl lg:text-4xl font-serif text-primary-950 font-bold mb-6 flex items-center gap-4">
+              <span class="w-12 h-1 bg-brand-gold flex-shrink-0"></span> Derecho Laboral
+            </h3>
+            <p class="text-gray-700 leading-relaxed mb-6 font-medium text-justify text-lg">
+              Comprendemos los desafíos y complejidades del ámbito laboral para empleadores y empleados. Nuestro equipo proporciona asesoramiento experto y representación sólida en cuestiones de trabajo.
+            </p>
+            <p class="text-gray-700 leading-relaxed mb-8 font-medium text-justify text-lg">
+              Redactamos contratos, políticas internas y mediamos en la resolución de conflictos como despidos, sanciones disciplinarias y todo tipo de reclamaciones salvaguardando sus derechos integrales.
+            </p>
+            <div>
+              <a href={siteConfig.contact.whatsappLink} target="_blank" class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-3 w-full sm:w-auto text-lg hover:-translate-y-1 shadow-xl">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793 0-.853.448-1.273.607-1.446.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.666.598 1.236.771 1.41.858.173.086.275.072.376-.043.101-.115.433-.506.549-.68.116-.173.231-.145.39-.087s1.012.477 1.185.564c.174.087.289.13.332.202.043.073.043.423-.101.827z"/></svg>
+                Consúltame aquí
+              </a>
+            </div>
+          </div>
+          <div class="order-1 lg:order-2">
+            <div class="w-full aspect-[4/3] rounded-2xl shadow-2xl overflow-hidden bg-primary-200 border-4 border-white bg-[url('/images/servicio-laboral.jpg')] bg-cover bg-center transform lg:translate-x-4"></div>
+          </div>
+        </div>
+
+        <!-- Seccion Transicional (Línea de quiebre visual) -->
+        <div class="w-full h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent"></div>
+
+        <!-- Penal -->
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div class="order-1">
+            <div class="w-full aspect-[4/3] rounded-2xl shadow-2xl overflow-hidden bg-primary-200 border-4 border-white bg-[url('/images/servicio-penal.jpg')] bg-cover bg-center transform lg:-translate-x-4"></div>
+          </div>
+          <div class="flex flex-col justify-center order-2 px-4 lg:pl-8">
+            <h3 class="text-3xl lg:text-4xl font-serif text-primary-950 font-bold mb-6 flex items-center gap-4">
+              Derecho Penal <span class="w-12 h-1 bg-brand-gold flex-shrink-0"></span>
+            </h3>
+            <p class="text-gray-700 leading-relaxed mb-6 font-medium text-justify text-lg">
+              Enfrentarse a un proceso penal puede ser una experiencia estresante. Nuestro equipo está comprometido a brindarle una representación legal tenaz y estratégica en estos momentos difíciles.
+            </p>
+            <p class="text-gray-700 leading-relaxed mb-8 font-medium text-justify text-lg">
+              Ya sea ante delitos menores o graves, defenderemos sus libertades luchando por un trato justo de principio a fin, desde la investigación inicial hasta la contienda en el tribunal.
+            </p>
+            <div>
+              <a href={siteConfig.contact.whatsappLink} target="_blank" class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-3 w-full sm:w-auto text-lg hover:-translate-y-1 shadow-xl">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793 0-.853.448-1.273.607-1.446.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.666.598 1.236.771 1.41.858.173.086.275.072.376-.043.101-.115.433-.506.549-.68.116-.173.231-.145.39-.087s1.012.477 1.185.564c.174.087.289.13.332.202.043.073.043.423-.101.827z"/></svg>
+                Consúltame aquí
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent"></div>
+
+        <!-- Civil -->
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div class="flex flex-col justify-center order-2 lg:order-1 px-4 lg:pr-8">
+            <h3 class="text-3xl lg:text-4xl font-serif text-primary-950 font-bold mb-6 flex items-center gap-4">
+              <span class="w-12 h-1 bg-brand-gold flex-shrink-0"></span> Derecho Civil
+            </h3>
+            <p class="text-gray-700 leading-relaxed mb-6 font-medium text-justify text-lg">
+              Las disputas civiles pueden surgir de forma inesperada siendo emocional y legalmente complejas. Brindamos asesoramiento certero y una vocería férrea en litigios recurrentes.
+            </p>
+            <p class="text-gray-700 leading-relaxed mb-8 font-medium text-justify text-lg">
+              Solucionamos conflictos sobre contratos, incumplimientos, asuntos de propiedad, sucesiones patrimoniales y reclamaciones integrales por daños y perjuicios de diversa índole.
+            </p>
+            <div>
+              <a href={siteConfig.contact.whatsappLink} target="_blank" class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-3 w-full sm:w-auto text-lg hover:-translate-y-1 shadow-xl">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793 0-.853.448-1.273.607-1.446.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.666.598 1.236.771 1.41.858.173.086.275.072.376-.043.101-.115.433-.506.549-.68.116-.173.231-.145.39-.087s1.012.477 1.185.564c.174.087.289.13.332.202.043.073.043.423-.101.827z"/></svg>
+                Consúltame aquí
+              </a>
+            </div>
+          </div>
+          <div class="order-1 lg:order-2">
+            <div class="w-full aspect-[4/3] rounded-2xl shadow-2xl overflow-hidden bg-primary-200 border-4 border-white bg-[url('/images/servicio-civil.jpg')] bg-cover bg-center transform lg:translate-x-4"></div>
+          </div>
+        </div>
+
+        <div class="w-full h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent"></div>
+
+        <!-- Familia -->
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div class="order-1">
+            <div class="w-full aspect-[4/3] rounded-2xl shadow-2xl overflow-hidden bg-primary-200 border-4 border-white bg-[url('/images/servicio-familia.jpg')] bg-cover bg-center transform lg:-translate-x-4"></div>
+          </div>
+          <div class="flex flex-col justify-center order-2 px-4 lg:pl-8">
+            <h3 class="text-3xl lg:text-4xl font-serif text-primary-950 font-bold mb-6 flex items-center gap-4">
+               Derecho de Familia <span class="w-12 h-1 bg-brand-gold flex-shrink-0"></span>
+            </h3>
+            <p class="text-gray-700 leading-relaxed mb-6 font-medium text-justify text-lg">
+              Abordamos con profunda sensibilidad y tacto los asuntos concernientes al núcleo del hogar. Aportamos orientación compasiva y soporte total durante estos momentos delicados en su vida.
+            </p>
+            <p class="text-gray-700 leading-relaxed mb-8 font-medium text-justify text-lg">
+              Nuestra práctica incluye mediaciones y litigios en divorcios, custodia de menores, pensiones alimenticias, adopción y protección contra la violencia doméstica, siempre priorizando el bienestar superior.
+            </p>
+            <div>
+              <a href={siteConfig.contact.whatsappLink} target="_blank" class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-3 w-full sm:w-auto text-lg hover:-translate-y-1 shadow-xl">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793 0-.853.448-1.273.607-1.446.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.666.598 1.236.771 1.41.858.173.086.275.072.376-.043.101-.115.433-.506.549-.68.116-.173.231-.145.39-.087s1.012.477 1.185.564c.174.087.289.13.332.202.043.073.043.423-.101.827z"/></svg>
+                Consúltame aquí
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÁREA INMOBILIARIA -->
+  <section class="py-24 bg-primary-950 border-t-8 border-brand-gold text-white relative">
+    <div class="absolute inset-0 bg-[url('/images/stats-bg.jpg')] bg-cover bg-center opacity-10"></div>
+    <div class="container-custom relative z-10">
+      <div class="text-center mb-20">
+        <span class="text-brand-gold font-bold tracking-widest uppercase text-sm mb-4 block">Gestión Patrimonial Segura</span>
+        <h2 class="text-4xl md:text-5xl font-serif font-black text-white mb-6 uppercase">Área Inmobiliaria</h2>
+        <div class="w-24 h-1 bg-brand-gold mx-auto mb-8 shadow-md"></div>
+        <p class="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          Nuestra división inmobiliaria se encarga de proteger todo el ciclo de vida de su patrimonio garantizando la máxima rentabilidad, seguridad jurídica y transparencia técnica en cada transacción.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {realEstateServices.map(service => (
+          <div class="bg-primary-900/50 border border-brand-gold/30 p-8 rounded-xl shadow-lg hover:-translate-y-2 hover:border-brand-gold transition-all duration-300 group flex flex-col items-start h-full backdrop-blur-sm relative overflow-hidden">
+             <!-- Efecto de brillo inferior -->
+             <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-brand-gold/10 rounded-full blur-2xl group-hover:bg-brand-gold/30 transition-colors"></div>
+             
+             <div class="w-14 h-14 bg-primary-800 rounded-xl shadow-md border border-brand-gold/40 flex items-center justify-center text-brand-gold mb-8 group-hover:bg-brand-gold group-hover:text-primary-950 transition-colors relative z-10">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+             </div>
+             <h4 class="text-xl font-bold font-serif text-white mb-4 relative z-10 tracking-wide">{service.title}</h4>
+             <p class="text-gray-300 text-sm leading-relaxed font-medium relative z-10">{service.description}</p>
+          </div>
+        ))}
+      </div>
+      
+      <div class="mt-16 text-center">
+        <a href={siteConfig.contact.whatsappLink} target="_blank" class="btn-primary inline-flex items-center gap-3 px-10 py-4 text-lg">
+           Agendar Consulta Inmobiliaria
+           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>

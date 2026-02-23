@@ -1,0 +1,263 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { homeStats } from '../data/home';
+import { legalServices, realEstateServices } from '../data/services';
+import { teamMembers } from '../data/team';
+import { testimonials, faqs } from '../data/testimonials';
+import { siteConfig } from '../data/config';
+---
+
+<Layout>
+  <!-- Hero Section -->
+  <section class="relative bg-primary-950 text-white py-32 lg:py-48 min-h-[80vh] flex items-center bg-[url('/images/hero-bg.jpg')] bg-cover bg-center">
+    <div class="absolute inset-0 bg-primary-950/80"></div>
+    <div class="container-custom relative z-10 flex flex-col items-center text-center">
+      <h1 class="text-4xl md:text-6xl font-bold mb-6 max-w-4xl text-white font-serif leading-tight">
+        Bienvenido a BLANCO&BARRERA abogados,
+      </h1>
+      <p class="text-xl md:text-2xl text-gold-500 mb-8 max-w-3xl font-medium">
+        Somos un bufete de abogados comprometidos con la justicia:
+      </p>
+      <p class="text-xl md:text-2xl text-gray-200 max-w-4xl italic font-serif leading-relaxed px-4 border-l-4 border-r-4 border-brand-gold">
+        "Si la justicia existe, tiene que ser para todos; nadie puede quedar excluido, de lo contrario ya no sería justicia"
+      </p>
+      <div class="mt-12">
+        <a href={siteConfig.contact.whatsappLink} target="_blank" class="btn-primary text-xl px-10 py-4 shadow-2xl">
+          Consultar Ahora
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nuestros Servicios -->
+  <section class="py-24 bg-brand-light relative z-20">
+    <div class="container-custom">
+      <div class="text-center max-w-4xl mx-auto mb-16">
+        <h2 class="text-4xl md:text-5xl font-serif text-primary-950 mb-6 font-bold">Nuestros Servicios</h2>
+        <div class="w-24 h-1 bg-brand-gold mx-auto mb-8"></div>
+        <p class="text-lg text-gray-600 leading-relaxed font-medium">
+          En Blanco&Barrera Abogados, nos enorgullecemos de ofrecer servicios legales especializados en todas las ramas del derecho laboral, penal, civil y de familia. Nuestro equipo está compuesto por expertos en cada una de estas áreas, comprometidos a brindar asesoramiento y representación legal de la más alta calidad.
+        </p>
+      </div>
+
+      <!-- Directorio Visual (Replicando la Imagen) -->
+      <div class="mt-4 mb-16 bg-[#161413] rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden border-2 border-brand-gold/20">
+        <!-- Texturas de fondo -->
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+        <!-- Brillo en diagonal similar a la imagen -->
+        <div class="absolute -top-32 -left-32 w-96 h-96 bg-brand-gold/10 blur-[100px] rounded-full"></div>
+        <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-brand-gold/10 blur-[100px] rounded-full"></div>
+        
+        <div class="relative z-10 text-center mb-10 mt-6">
+          <h3 class="text-4xl md:text-5xl lg:text-6xl font-serif font-black text-white tracking-widest" style="text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">
+            BLANCO & BARRERA
+          </h3>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 relative z-10 mb-8 mt-10">
+          <!-- Columna Izquierda: Abogados -->
+          <div class="flex flex-col">
+            <div class="flex items-center justify-center md:justify-start gap-4 mb-8 pl-4">
+               <span class="bg-gradient-to-b from-[#f2d059] to-[#b38b1f] text-black px-6 py-2 rounded-xl font-black text-xl md:text-2xl shadow-[0_2px_10px_rgba(0,0,0,0.5)] border border-[#ffea94]">ABOGADOS</span>
+            </div>
+            
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-4 text-white text-lg font-bold font-serif pl-4">
+              {legalServices.map(item => (
+                <li class="flex items-center gap-3 drop-shadow-md">
+                  <span class="w-3 h-3 bg-[#eab308] rounded-full shadow-[0_0_8px_rgba(234,179,8,0.8)] flex-shrink-0"></span>
+                  <span class="uppercase tracking-wide leading-tight" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">{item.title}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          <!-- Linea Divisoria Fina Blanca/Gris -->
+          <div class="hidden md:block absolute left-1/2 top-4 bottom-4 w-px bg-white/40 transform -translate-x-1/2"></div>
+          
+          <!-- Columna Derecha: Inmobiliaria -->
+          <div class="flex flex-col">
+            <div class="flex items-center justify-center md:justify-center gap-4 mb-8">
+               <span class="bg-gradient-to-b from-[#f2d059] to-[#b38b1f] text-black px-6 py-2 rounded-xl font-black text-xl md:text-2xl shadow-[0_2px_10px_rgba(0,0,0,0.5)] border border-[#ffea94]">INMOBILIARIA</span>
+            </div>
+            
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-4 text-white text-lg font-bold font-serif pl-4 md:pl-10">
+              {realEstateServices.map(item => (
+                <li class="flex items-center gap-3 drop-shadow-md">
+                  <span class="w-3 h-3 bg-[#eab308] rounded-full shadow-[0_0_8px_rgba(234,179,8,0.8)] flex-shrink-0"></span>
+                  <span class="uppercase tracking-wide leading-tight" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">{item.title}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Franja Amarilla Contacto -->
+        <div class="mt-12 -mx-8 md:-mx-12 -mb-8 md:-mb-12 bg-[#ffcc00] px-4 md:px-8 py-4 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-[#1a1a1a] font-black text-base md:text-xl md:tracking-wide">
+           <div class="flex items-center gap-2">
+             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
+             <span>Calle 34 No. 13-21 - Ofi. 202 / 302</span>
+           </div>
+           <div class="hidden md:block w-2 h-1 bg-[#1a1a1a]"></div>
+           <div class="flex items-center gap-4">
+             <div class="flex items-center gap-1.5">
+               <svg class="w-6 h-6 text-green-700" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793 0-.853.448-1.273.607-1.446.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.666.598 1.236.771 1.41.858.173.086.275.072.376-.043.101-.115.433-.506.549-.68.116-.173.231-.145.39-.087s1.012.477 1.185.564c.174.087.289.13.332.202.043.073.043.423-.101.827z"/></svg>
+               <span>318 351 5222</span>
+             </div>
+             <div class="hidden md:block w-2 h-1 bg-[#1a1a1a]"></div>
+             <div class="flex items-center gap-1.5">
+               <svg class="w-6 h-6 text-green-700" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793 0-.853.448-1.273.607-1.446.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.666.598 1.236.771 1.41.858.173.086.275.072.376-.043.101-.115.433-.506.549-.68.116-.173.231-.145.39-.087s1.012.477 1.185.564c.174.087.289.13.332.202.043.073.043.423-.101.827z"/></svg>
+               <span>302 239 5717</span>
+             </div>
+           </div>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <a href="/servicios" class="inline-flex justify-center items-center px-8 py-4 border-2 border-primary-950 text-lg font-bold rounded-md text-primary-950 hover:bg-primary-950 hover:text-white transition-colors duration-300">
+          Mas información de nuestros servicios aquí
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Banner intermedio (Placeholder Imagen) -->
+  <section class="h-64 bg-primary-900 bg-[url('/images/banner-bg.jpg')] bg-cover bg-fixed bg-center relative flex items-center justify-center">
+    <div class="absolute inset-0 bg-primary-950/70"></div>
+    <div class="relative z-10 text-center px-4">
+      <h2 class="text-3xl md:text-5xl font-serif text-brand-gold font-bold italic mb-4">Protegiendo su patrimonio</h2>
+    </div>
+  </section>
+
+  <!-- Acerca de Nosotros -->
+  <section class="py-24 bg-white relative">
+    <div class="container-custom">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="text-brand-gold font-bold tracking-widest uppercase text-sm mb-4 block">Firma Legal</span>
+          <h2 class="text-4xl md:text-5xl font-serif font-bold text-primary-950 mb-8 leading-tight">
+            Acerca de Nosotros
+          </h2>
+          <div class="w-16 h-1 bg-brand-gold mb-8"></div>
+          <p class="text-gray-600 mb-6 text-lg leading-relaxed text-justify">
+            En Blanco&Barrera Abogados, nuestra misión es más que simplemente ofrecer servicios legales excepcionales; nos comprometemos a proteger los intereses económicos y sociales de nuestros clientes en cada paso del camino. Con una profunda comprensión de los desafíos y las complejidades que enfrentan individuos y empresas en el entorno jurídico actual, nos enorgullecemos de ofrecer soluciones innovadoras y estratégicas que salvaguarden sus derechos y promuevan su bienestar económico y social.
+          </p>
+          <p class="text-gray-600 leading-relaxed text-justify">
+            Nuestro equipo de abogados altamente calificados está dedicado a brindar asesoramiento legal integral y representación de primera clase en una variedad de áreas, desde el derecho laboral hasta el derecho empresarial y más allá. Ya sea que estés luchando contra la discriminación laboral, enfrentando disputas contractuales o buscando proteger tus activos comerciales, estamos aquí para ayudarte a navegar por los desafíos legales con confianza y seguridad.
+          </p>
+        </div>
+        <div class="relative">
+          <!-- Espacio para la imagen grupal u oficina -->
+          <div class="aspect-square md:aspect-[4/3] bg-primary-100 rounded-lg relative overflow-hidden bg-[url('/images/about-us.jpg')] bg-cover bg-center shadow-2xl">
+            <div class="absolute inset-0 bg-primary-900/10 mix-blend-multiply"></div>
+          </div>
+          <div class="absolute -bottom-10 -left-10 bg-brand-gold text-white p-8 rounded-lg shadow-xl hidden md:block">
+            <p class="text-4xl font-serif font-bold">10+</p>
+            <p class="text-sm uppercase tracking-widest font-semibold mt-2">Años de Excelencia</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- El Equipo -->
+  <section class="py-24 bg-brand-light border-y border-gray-200">
+    <div class="container-custom">
+      <div class="text-center max-w-3xl mx-auto mb-20">
+        <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary-950 mb-4 uppercase tracking-wide">
+          EL EQUIPO DE BLANCO&BARRERA ABOGADOS ESTÁ FORMADO
+        </h2>
+        <p class="text-xl text-brand-gold italic font-medium">por profesionales altamente cualificados</p>
+        <div class="w-24 h-1 bg-brand-gold mx-auto mt-8"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {teamMembers.map(member => (
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300 flex flex-col h-full group">
+            <div class="aspect-[4/5] bg-primary-200 relative bg-cover bg-center" style={`background-image: url('${member.image}');`}>
+              <div class="absolute inset-0 bg-primary-950/20 group-hover:bg-transparent transition-colors duration-500"></div>
+            </div>
+            <div class="p-8 flex flex-col flex-grow">
+              <h3 class="text-xl font-bold text-primary-950 mb-2 uppercase font-serif tracking-tight">{member.name}</h3>
+              <p class="text-brand-gold font-bold mb-4 text-xs uppercase tracking-widest">{member.role}</p>
+              <p class="text-gray-600 leading-relaxed text-sm mb-6 flex-grow">
+                {member.bio}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Grid -->
+  <section class="py-20 bg-primary-950 text-white relative bg-[url('/images/stats-bg.jpg')] bg-cover bg-center bg-fixed">
+    <div class="absolute inset-0 bg-primary-950/90"></div>
+    <div class="container-custom relative z-10">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-brand-gold/20">
+        {homeStats.map(stat => (
+          <div class="p-6">
+            <p class="text-5xl md:text-6xl font-serif font-bold text-brand-gold mb-4">{stat.value}</p>
+            <p class="text-lg md:text-xl uppercase tracking-wider font-semibold opacity-90">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-24 bg-white">
+    <div class="container-custom">
+      <div class="text-center mb-16">
+        <span class="text-brand-gold font-bold tracking-widest uppercase text-sm mb-4 block">FAQ</span>
+        <h2 class="text-4xl font-serif font-bold text-primary-950 mb-6">Pregúntanos cualquier cosa</h2>
+        <div class="w-16 h-1 bg-brand-gold mx-auto"></div>
+      </div>
+      
+      <div class="max-w-3xl mx-auto space-y-4">
+        {faqs.map((faq, idx) => (
+          <details class="group bg-brand-light rounded-lg border border-gray-200 [&_summary::-webkit-details-marker]:hidden">
+            <summary class="flex items-center justify-between p-6 cursor-pointer text-lg font-bold text-primary-950 group-open:text-brand-gold">
+              <span>{faq.question}</span>
+              <span class="transition group-open:rotate-180">
+                <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+              </span>
+            </summary>
+            <div class="p-6 pt-0 text-gray-600 leading-relaxed italic border-t border-gray-200/50 mt-2">
+              <p>{faq.answer}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-24 bg-brand-light border-t border-gray-200">
+    <div class="container-custom">
+      <div class="text-center max-w-4xl mx-auto mb-16">
+        <span class="text-brand-gold font-bold tracking-widest uppercase text-sm mb-4 block">Real Testimonios</span>
+        <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary-950 mb-4 opacity-80 italic">Our clients are happy to commend our efforts</h2>
+        <div class="w-16 h-1 bg-brand-gold mx-auto mb-8"></div>
+        <p class="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
+          En Blanco&Barrera Abogados, la satisfacción de nuestros clientes es nuestra prioridad número uno. Nos enorgullece haber brindado servicios legales excepcionales a una amplia gama de clientes, y valoramos profundamente sus opiniones y experiencias con nuestra firma.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        {testimonials.map(t => (
+          <div class="bg-white p-10 rounded-2xl shadow-xl relative mt-8 border border-gray-100 hover:border-brand-gold/50 transition-colors">
+            <div class="absolute -top-6 left-10 w-12 h-12 bg-brand-gold rounded-full flex items-center justify-center text-white shadow-lg">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z" />
+              </svg>
+            </div>
+            <h4 class="text-xl font-bold text-primary-950 font-serif">{t.name}</h4>
+            <span class="text-sm font-semibold uppercase text-brand-gold tracking-widest block mb-6">{t.case}</span>
+            <p class="text-gray-600 italic leading-relaxed">"{t.text}"</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</Layout>
