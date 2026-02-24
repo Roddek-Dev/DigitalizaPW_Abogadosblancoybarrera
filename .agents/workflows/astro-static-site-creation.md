@@ -2,29 +2,26 @@
 description: Guía maestra y paso a paso para la creación ágil de páginas web estáticas con Astro
 ---
 
-# 🚀 Workflow Ágil: Creación de Páginas Web Estáticas Premium con Astro
+# 🚀 Workflow Ágil: Creación de Páginas Web Estáticas Premium de Alta Calidad (Mobile-First)
 
-Esta guía sirve como **Contexto, Blueprint y Reglas de Desarrollo (Rules)** para la creación y rediseño de sitios web estáticos utilizando **Astro + TailwindCSS**. El objetivo es garantizar un proceso organizado, modular, con diseño UI/UX de alto nivel y con un despliegue manual a prueba de fallos.
+Esta guía sirve como **Contexto, Blueprint y Reglas de Desarrollo (Rules)** para la creación y rediseño de sitios web estáticos utilizando **Astro + TailwindCSS**. El objetivo es garantizar un proceso organizado, modular, con diseño UI/UX de alto nivel, una estructura **Mobile-First** impecable y con un despliegue manual a prueba de fallos.
 
 ---
 
-## 🏗️ 1. Fase de Setup y Configuración Inicial
+## 🏗️ 1. Fase de Setup y Configuración Inicial (Perspectiva Mobile-First)
 
-El objetivo de esta fase es tener el chasis del proyecto listo antes de tirar una sola línea de lógica visual.
+El objetivo de esta fase es tener el chasis del proyecto listo. Todo desarrollo debe enfocarse primero en cómo se verá en el teléfono antes de adaptarlo a pantallas de ordenador.
 
 -   **Inicialización:** `npm create astro@latest ./` (seleccionar "Empty" o un template base).
 -   **Instalación de TailwindCSS:** `npx astro add tailwind`.
 -   **Configuración de Paletas en `tailwind.config.mjs`:**
-    -   Definir colores corporativos estrictos (ej. `primary`, `secondary`, `accent`, `brand-gold`).
-    -   Definir tipografías modernas (ej. Inter, Outfit, Roboto).
-    -   *Regla de Oro:* Todo el equipo debe usar las utilidades de color definidas en el archivo en lugar de colores hardcodeados (ej: usar `text-primary-900` en vez de `text-[#1a2b3c]`).
--   **Estructura de Carpetas:**
-    -   `/src/layouts/`: Plantillas base (Layout.astro) que incluyen el Header, Footer, Fuentes y Meta-Tags.
-    -   `/src/pages/`: Las rutas de la página (`index.astro`, `contacto.astro`, etc).
-    -   `/src/components/`: Piezas de UI reutilizables (Cards, Botones, Formularios, Heros).
-    -   `/src/data/`: Archivos TypeScript/AJAX con el contenido (Textos, Testimonios, Info de Contacto).
-    -   `/src/assets/images/`: Archivos crudos de imágenes (Astro las procesará y optimizará automáticamente).
-    -   `/public/images/`: Imágenes pesadas como videos cortos o íconos SVG globales estáticos.
+    -   Definir colores corporativos estrictos y tipografías modernas. Usar variables del config siempre.
+-   **Configuración Base `Layout.astro` (NUNCA OLVIDAR EL OVERFLOW):**
+    -   Añadir inmediatamente la clase `overflow-x-hidden` en el `<html>` y `<body>`. Esto previene de raíz el error crítico del "espacio en blanco sobrante" o falso scroll horizontal en dispositivos móviles.
+-   **Header y Menú Responsivo Pre-configurado:**
+    -   Diseñar siempre la versión móvil y tablet antes de la de PC.
+    -   El botón del Menú de Hamburguesa (`<button class="md:hidden">`) **nunca debe ser un mockup inactivo**. Debe llevar un `<script>` integrado de Vanilla JS para efectuar el toggle desde el inicio del proyecto.
+-   **Estructura de Carpetas Clásica de Astro:** `/src/layouts/`, `/src/pages/`, `/src/components/`, `/src/data/`, etc.
 
 ---
 
@@ -34,82 +31,58 @@ Para agilizar rediseños e iteraciones futuras, la data (el contenido) y la pres
 
 -   **Archivos de Datos (`src/data/*.ts`)**
     -   Crear diccionarios estáticos como `team.ts`, `services.ts`, `testimonials.ts`.
-    -   **Regla:** Si un cliente nos pide cambiar el "texto de un servicio", solo se toca el archivo `.ts`, no se toca el `.astro` para evitar dañar el layout.
--   **Mapeo Rápido:** En los componentes `.astro`, usar el método `.map()` sobre los archivos `.ts` para generar tarjetas repetibles de forma dinámica.
+-   **Mapeo Responsivo:** En los componentes `.astro`, usar el método `.map()`. Todo `grid` mapeado debe empezar siempre para móvil (`grid-cols-1`) y escalar solo cuando sea seguro (`md:grid-cols-2`, `lg:grid-cols-3`).
 
 ---
 
 ## 🎨 3. UI/UX de Arquitectura Premium (Diseño Aesthetic)
 
-Un proyecto debe impresionar a primera vista. Evitamos los "MVPs" simples, cajas genéricas y colores planos.
+Un proyecto debe impresionar a primera vista y adaptarse orgánicamente al dispositivo.
 
 -   **Fondos y Profundidad:** 
-    -   Usar gradientes sutiles o texturas translúcidas CSS (ej. texturas SVG opacidad 5%).
-    -   Nunca usar blanco puro (`bg-white`) para el fondo general si no contrasta; preferir `bg-zinc-50` o esquemas estructurados de claro/oscuro.
+    -   Usar gradientes sutiles o texturas translúcidas CSS. Si una textura interrumpe la pantalla móvil, considerar ocultarla en móvil y dejar solo un color sólido (`bg-primary-900 lg:bg-[url(...)]`).
 -   **Glassmorphism (Efecto Vidrio):**
-    -   Combinar `bg-white/90` o `bg-black/80` con `backdrop-blur-md` e `inset-0` para componentes flotantes.
--   **Micro-interacciones (Estado Hover):**
-    -   Toda tarjeta o botón clickeable debe levitar o iluminarse sutilmente (`hover:-translate-y-2`, `hover:shadow-xl`, `transition-all duration-300`).
--   **Jerarquía de Lectura (Snackable Content):**
-    -   Mucho aire (Paddings generosos).
-    -   Usar Badges (etiquetas de colores) arriba de los titulares para guiar el ojo (ej. `"SERVICIOS ESPECIALIZADOS"` en dorado pequeño antes del gran H1).
+    -   Combinar `bg-white/90` o `bg-black/80` con `backdrop-blur-md` e `inset-0`.
+-   **Micro-interacciones:**
+    -   Efectos Hover sutiles (`hover:-translate-y-2`) en tarjetas y botones. *Atención: los Hover se mantienen en PC, pero en móvil deben ser fáciles de tocar (zonas táctiles de al menos 44px de alto).*
+-   **Jerarquía de Lectura Secuencial (Móvil):**
+    -   **REGLA DE ORO:** Evitar el comportamiento automático de Tailwind donde, en un contenedor flex/grid, el móvil pone **todos los textos juntos y luego todas las fotos juntas.** Modificar la estructura condicionalmente (`lg:hidden`) para crear un bloque consecuente: "Misión Texto -> Foto -> Visión Texto -> Foto".
 
 ---
 
 ## 🖼️ 4. Optimización de Assets y SEO
 
-Un sitio hermoso que tarda 10 segundos en cargar, es un sitio abandonado.
+Un sitio hermoso que tarda 10 segundos en cargar en una red 3G móvil, es un sitio abandonado.
 
 -   **Formato de Imágen:**
-    -   **REGLA ESTRICTA:** Usar únicamente formatos rápidos y puros como **`.webp`** (o `SVG` para íconos). Ignorar y convertir todo `.png` o `.jpg` pesado.
--   **Iconografía:** 
-    -   Usar SVGs en línea (`<svg>`) para heredar colores de Tailwind (`text-brand-gold fill-current`).
+    -   Usar **`.webp`**. Ignorar todo `.png` o `.jpg` pesado.
+-   **Iconografía en Móvil:** 
+    -   Cuidar el peso visual y márgenes de los SVGs. No dejar elementos "flotando" fuera de los márgenes nativos laterales de padding (ej: usar `px-4` o `px-6` a nivel global móvil).
 -   **Auditoría de Residuos:**
-    -   Antes de desplegar, correr un script de Node (ej. `check_unused_images.mjs`) para escanear y eliminar las imágenes que ya no se referencian en el código para no inflar la carga del servidor final.
--   **SEO On-Page Dinámico:**
-    -   El layout debe aceptar props `title` y `description`.
-    -   Cada `page` debe inyectar sus propias descripciones enfocadas a motores de búsqueda (ej. `title="Bufete de Abogados | Firm Name"`).
+    -   Correr scripts para limpiar imágenes que ya no se referencian antes de desplegar.
 
 ---
 
-## 📱 5. Control de Calidad y Depuración Móvil (Mobile-First)
+## 📱 5. Checklist de Control Mobile (Evitar Errores Clásicos)
 
-El 80% de los usuarios verán la web en su teléfono. Antes del despliegue, es obligatorio revisar la experiencia móvil.
+Antes de dar el visto bueno a una página o subsección, el agente/desarrollador **debe auto-evaluarse** obligatoriamente y corregirlo si encuentra alguna de estas violaciones:
 
--   **Menú de Hamburguesa Activo:**
-    -   Nunca dejar un `<button class="md:hidden">` sin funcionalidad.
-    -   Crear siempre en el componente `Header.astro` un contenedor para el menú móvil (`id="mobile-menu"`) y añadir un `<script>` nativo de Vanilla JS al final del componente para hacer el toggle de las clases `hidden` / `flex`. Considerar `astro:page-load` si se usa ViewTransitions.
--   **Eliminación de la Franja Blanca Lateral (Overflow Horizontal):**
-    -   Asegurarse de que ningún contenido sobrepase los bordes de la pantalla (generalmente por márgenes negativos `-mx-*` o posiciones absolutas).
-    -   **REGLA OBLIGATORIA:** Añadir la clase `overflow-x-hidden` en el `<html>` y `<body>` dentro del archivo `Layout.astro` principal para cortar rígidamente cualquier espacio blanco lateral en smartphones.
--   **Lectura Secuencial (Textos e Imágenes Intercalados):**
-    -   Evitar diseños de 2 columnas donde el móvil agrupe todo el texto arriba y todas las imágenes abajo.
-    -   Codificar un diseño de asimilación rápida: separar los bloques para móviles usando `lg:hidden` intercalado, creando un ritmo "Texto > Imagen > Texto > Imagen", preservando el diseño asimétrico o de flexbox oculto solo para pantallas grandes (`hidden lg:flex`).
+1.  *¿El botón de las 3 rayas del Navbar (Hamburguesa) abre de verdad un menú funcional en tamaño celular?* (Requerido: Añadir Script nativo).
+2.  *¿Hay enlaces muertos con `#` en el Header o Footer que no lleven a las áreas correctas?*
+3.  *Al poner vistas en pantalla pequeña, ¿tengo una cinta blanca horrorosa a la derecha provocando scroll horizontal?* (Requerido: inyectar `overflow-x-hidden` en html/body).
+4.  *¿Estudié la lectura visual celular? ¿Hay fotos agrupadas abajo solas sin contexto en diseño multipantalla?* (Requerido: separar los bloques grandes condicionalmente para obligar a una lectura secuencial Texto-Imagen).
 
 ---
 
-## 📦 5. El Despliegue (Cero Fricción: Método ZIP)
+## 📦 6. El Despliegue (Cero Fricción: Método ZIP manual)
 
-Hemos validado que para entornos strictos de Shared Hosting (como Hostinger) donde el FTP bloquea, los túneles y Git trackers fallan, **el despliegue manual empaquetado es el rey de la velocidad y efectividad.** 
-La estrategia es minimizar el estrés de la infraestructura.
+Hemos validado tajantemente que para entornos strictos de Shared Hosting (como Hostinger) donde el FTP bloquea, los túneles fallan y los trackers de GitHub enloquecen al leer `.gitignore`, **el despliegue manual empaquetado es la máxima ley de la velocidad y efectividad.** 
 
-1.  **Construir (Build):**
-    -   Abrir la terminal y ejecutar `npm run build`. 
-    -   Astro compilará automáticamente los archivos `.astro` hacia HTML puro, minificará el CSS/JS y meterá todo junto a las imágenes en la carpeta raíz `dist/`.
-2.  **Empaquetar (Zip):**
-    -   Entrar a la carpeta generada: `cd dist/`
-    -   Comprimir todo el contenido interno: `zip -r ../nuestro_proyecto.zip ./*` o hacerlo mediante el explorador de archivos.
-3.  **Subida Inmediata (Panel del Hosting):**
-    -   Acceder al Administrador de Archivos Web (Hostinger, cPanel, etc).
-    -   Ir a la carpeta pública del servidor web (`public_html` o similar).
-    -   **¡Importante!** Borrar archivos por defecto del servidor si es nuevo (ej. `default.php`).
-    -   Subir el archivo `.zip`.
-    -   Extraer el `.zip` directamente sobre `public_html`.
-4.  **Confirmación:**
-    -   Cargar el dominio (usar modo Incógnito para ignorar caché antiguo) y validar la versión en vivo.
+1.  **Construir:** `npm run build`. (Compilará y unirá todo en la carpeta `dist/`).
+2.  **Empaquetar:** `cd dist/` y comprimir `zip -r ../nuestro_proyecto.zip ./*`.
+3.  **Subida Inmediata:** Ir vía web al Administrador de Archivos, carpeta `public_html` del Hostinger. Subir el ZIP y darle *Extraer aquí*. (Cuidar de borrar `default.php` antes).
 
----
-
-### 🤖 Resumen de Comandos a usar por Agentes (Contexto de Memoria CI/CD):
--   No uses `SamKirkland/FTP-Deploy-Action` de GitHub con Hostinger para sitios compilados (Ignorará carpetas `/dist/` que no existan en el repo base de origen).
--   No pierdas +1 hora depurando reglas de FTP TLS en el terminal si un ZIP manual de la carpeta `/dist` se condensa y se sube en 2 minutos. **Priorizar Agilidad**.
+### 🤖 Resumen de Comandos a usar por Agentes (Contexto Cósmico CI/CD):
+-   No uses plugins de terceros (ej. `FTP-Deploy-Action`) de GitHub con sitios estáticos en Hostinger.
+-   No agotes más de 1 iteración intentando reparar reglas de FTP TLS intermitentes, si un ZIP manual de `/dist` se compila y sube en 2 minutos. **Priorizar Agilidad y Entregas Visibles sobre la sobre-automatización**.
+-   **Siempre asume primero la visión táctil y reducida (Smartphone) antes que la inmensidad del ordenador.**
